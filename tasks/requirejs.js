@@ -43,6 +43,8 @@ module.exports = function(grunt) {
       }
     };
 
-    requirejs.optimize(options, tryCatch.bind(null, options.done, done));
+    requirejs.optimize(options, tryCatch.bind(null, options.done, done), function (err) {
+      grunt.fatal.fail(err);
+    });
   });
 };
